@@ -1,7 +1,7 @@
 #!/bin/bash
 # Fuctibash
 
-select sel in "Install a tty web browser." "Update and upgrade system." "Install cmatrix" "Install fastfetch" "Open DuckDuckGo"
+select sel in "Install a tty web browser." "Update and upgrade system." "Install cmatrix" "Install fastfetch" "Open DuckDuckGo" "Install flatpak"
 do
   case $sel in
     "Install a tty web browser.") sudo pacman -S links && exit;;
@@ -9,6 +9,7 @@ do
     "Install cmatrix") sudo pacman -S cmatrix && exit;;
     "Install fastfetch") git clone https://github.com/LinusDierheimer/fastfetch.git && cd fastfetch && mkdir -p build && cd build && cmake .. && cmake --build . --target fastfetch --target flashfetch && exit;;
     "Open DuckDuckGo") exo-open https://duckduckgo.com && exit;;
+    "Install flatpak") sudo pacman -S flatpak && exit;;
     *) echo "Geçersiz seçim && exit";;
   esac
 done
