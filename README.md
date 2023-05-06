@@ -1,16 +1,30 @@
-# fuctibash
-A shell script for Arch Linux usability. Anyone can contribute to this repo.
+#!/bin/bash
 
-# Installing
-## Let' s clone repo!
-`git clone https://github.com/Quitaxd/fuctibash.git`
+echo If you get an error, install dialog package.
 
-## Enter directory
-`cd fuctibash`
+selection=$(dialog --menu "Lütfen seçiminizi yapın:" 10 60 3 1 "Install a tty web browser." 2 "Update and upgrade system." 3 "Install cmatrix" 4 "Install fastfetch" 5 "Open DuckDuckGo" 6 "Install flatpak" 7 "Install i3wm" --output-fd 1)
 
-## Execute script
-`./fuctibash.sh`
+case $selection in
+    1)
+        sudo pacman -S links --noconfirm && clear
+        ;;
+    2)
+        sudo pacman -Syu --noconfirm && clear
+        ;;
+    3)
+        sudo pacman -S cmatrix --noconfirm && clear
+        ;;
+    4)
+        git clone https://github.com/LinusDierheimer/fastfetch.git && cd fastfetch && mkdir -p build && cd build && cmake .. && cmake --build . --target fastfetch --target flashfetch && clear
+        ;;
+    5)
+	exo-open https://duckduckgo.com && clear
+	;;
+    6)
+	sudo pacman -S flatpak --noconfirm && clear
+	;;
+    7)
+	sudo pacman -S i3 --noconfirm && clear
+	;;
 
-NOTE: If you getting a error type `chmod +x fuctibash.sh` and retry.
-
-![Arch Linux](https://cdn.technadu.com/wp-content/uploads/2021/04/arch-linux-logo-1536x864.png)
+esac
