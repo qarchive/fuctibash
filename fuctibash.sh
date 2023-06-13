@@ -2,7 +2,7 @@
 
 echo If you get an error, install dialog package.
 
-selection=$(dialog --menu "Lütfen seçiminizi yapın:" 10 60 3 1 "Install a tty web browser." 2 "Update and upgrade system." 3 "Install cmatrix" 4 "Install fastfetch" 5 "Open DuckDuckGo" 6 "Install flatpak" 7 "Install i3wm" --output-fd 1)
+selection=$(dialog --menu "Lütfen seçiminizi yapın:" 10 60 3 1 "Install a tty web browser." 2 "Update and upgrade system." 3 "Install cmatrix" 4 "Install fastfetch" 5 "Open DuckDuckGo" 6 "Install flatpak" 7 "Install i3wm" 8 "Install zsh" 9 "Install fish" --output-fd 1)
 
 case $selection in
     1)
@@ -27,4 +27,11 @@ case $selection in
 	sudo pacman -S i3 --noconfirm && clear
 	;;
 
+    8)
+    sudo pacman -S zsh --noconfirm && clear
+    ;;
+
+    9)
+    sudo pacman -S fish --noconfirm && clear
+    ;;
 esac
